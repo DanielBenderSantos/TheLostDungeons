@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1vkoaf6cftuy"]
+
+[ext_resource type="Texture2D" uid="uid://dbh6jw3q2fyck" path="res://terrain/assets/objects.png" id="1_q0grn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4qal"]
+resource_name = "objects"
+texture = ExtResource("1_q0grn")
+0:5/size_in_atlas = Vector2i(3, 4)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, 18)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.71237, -5.30583, -12.2304, -2.96767, -11.8707, 0.449647, -12.0505, 5.12597, -8, 4.76626, -8, 8, -0.539577, 8, 0.539576, 6.20513, 3.0576, 6.02527, 3.41731, 8, 9.71237, 7.82385, 9.71237, 4.76626, 11.511, 3.6871, 11.8707, -0.449647, 8, -5.66555)
+0:0/0 = 0
+0:1/0 = 0
+5:0/0 = 0
+10:0/size_in_atlas = Vector2i(2, 1)
+10:0/0 = 0
+11:2/size_in_atlas = Vector2i(1, 2)
+11:2/next_alternative_id = 2
+11:2/0 = 0
+10:7/size_in_atlas = Vector2i(2, 2)
+10:7/0 = 0
+8:6/size_in_atlas = Vector2i(2, 3)
+8:6/0 = 0
+6:7/size_in_atlas = Vector2i(2, 2)
+6:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6qh8b"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_q4qal")
+
+[node name="objectsTerrain" type="TileMap"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_6qh8b")
+format = 2
+layer_0/y_sort_enabled = true
