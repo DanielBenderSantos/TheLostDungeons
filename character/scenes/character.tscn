@@ -655,12 +655,10 @@ parameters/walk/blend_position = Vector2(0, 0)
 wait_time = 0.4
 one_shot = true
 
-[node name="AttackArea" type="Area2D" parent="."]
-
-[node name="Collision" type="CollisionShape2D" parent="AttackArea"]
+[node name="Collision" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 shape = SubResource("RectangleShape2D_rkhd4")
 
-[node name="Camera" type="Camera2D" parent="AttackArea"]
+[node name="Camera" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
