@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8h0a6j8vm0yt"]
+
+[ext_resource type="Texture2D" uid="uid://p0br3cse5vwi" path="res://character/assets/slime.png" id="1_mpp2a"]
+
+[sub_resource type="Animation" id="Animation_fsvpi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mpp2a"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [84, 85, 86, 87, 88]
+}
+
+[sub_resource type="Animation" id="Animation_jw2vn"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_b231s"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31, 32, 33]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6qym"]
+_data = {
+&"RESET": SubResource("Animation_fsvpi"),
+&"death": SubResource("Animation_mpp2a"),
+&"idle": SubResource("Animation_jw2vn"),
+&"walk": SubResource("Animation_b231s")
+}
+
+[node name="Slime" type="CharacterBody2D"]
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_mpp2a")
+hframes = 7
+vframes = 13
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u6qym")
+}
