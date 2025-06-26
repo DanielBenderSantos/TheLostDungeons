@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8h0a6j8vm0yt"]
+[gd_scene load_steps=10 format=3 uid="uid://b8h0a6j8vm0yt"]
 
+[ext_resource type="Script" uid="uid://cnyqvewq3mt1a" path="res://character/scripts/slime.gd" id="1_jw2vn"]
 [ext_resource type="Texture2D" uid="uid://p0br3cse5vwi" path="res://character/assets/slime.png" id="1_mpp2a"]
 
 [sub_resource type="Animation" id="Animation_fsvpi"]
@@ -75,7 +76,14 @@ _data = {
 &"walk": SubResource("Animation_b231s")
 }
 
-[node name="Slime" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpp2a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jw2vn"]
+
+[node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["enemy"]]
+script = ExtResource("1_jw2vn")
+_texture = NodePath("Texture")
+_animation = NodePath("Animation")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_mpp2a")
@@ -86,3 +94,20 @@ vframes = 13
 libraries = {
 &"": SubResource("AnimationLibrary_u6qym")
 }
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 5)
+scale = Vector2(0.994162, 0.9789)
+shape = SubResource("RectangleShape2D_mpp2a")
+
+[node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+show_behind_parent = true
+scale = Vector2(13.1922, 13.1922)
+shape = SubResource("CircleShape2D_jw2vn")
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_finished"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
