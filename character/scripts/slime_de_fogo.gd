@@ -11,7 +11,6 @@ var _player_ref = null
 
 func _on_detection_area_body_entered(_body) -> void:
 	if _body.is_in_group("character"):
-		print("Player detectado!")
 		_player_ref = _body
 
 

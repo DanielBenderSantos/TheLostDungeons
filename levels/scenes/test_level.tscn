@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq0pbsn4mq5uw"]
+[gd_scene load_steps=9 format=3 uid="uid://dq0pbsn4mq5uw"]
 
 [ext_resource type="PackedScene" uid="uid://dp4112rp3e38m" path="res://terrain/scenes/terrain.tscn" id="1_wwfh4"]
 [ext_resource type="PackedScene" uid="uid://c1vkoaf6cftuy" path="res://terrain/scenes/objects_terrain.tscn" id="2_0r7rc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dunayucbq1u35" path="res://components/scenes/door_component.tscn" id="5_7inod"]
 [ext_resource type="PackedScene" uid="uid://b8h0a6j8vm0yt" path="res://character/scenes/slime.tscn" id="6_lo8o4"]
 [ext_resource type="PackedScene" uid="uid://j54r0o6xxebu" path="res://character/scenes/slimeDeFogo.tscn" id="7_1rm5t"]
+[ext_resource type="Script" uid="uid://drrd8slcike78" path="res://character/scripts/slime_spawner.gd" id="8_rxat5"]
 
 [node name="Level" type="Node2D"]
 
@@ -42,7 +43,12 @@ position = Vector2(-24, 294)
 layer_0/tile_data = PackedInt32Array(589830, 0, 5, -131052, 0, 5, 393248, 524288, 6, 36, 524288, 6, 720908, 655360, 7, 393236, 655360, 7, 393227, 0, 1, -65531, 0, 1, -327674, 0, 1, 327688, 0, 0, -655328, 0, 5, -655349, 0, 5, -720875, 327680, 0, 983077, 0, 1, 1048617, 0, 1, 1048614, 0, 1)
 
 [node name="Slime" parent="YSort" instance=ExtResource("6_lo8o4")]
-position = Vector2(192, 296)
+position = Vector2(333, 59)
 
-[node name="Slime2" parent="YSort" instance=ExtResource("7_1rm5t")]
-position = Vector2(51, 115)
+[node name="SlimeDeFogo" parent="YSort" instance=ExtResource("7_1rm5t")]
+position = Vector2(73, 54)
+
+[node name="SlimeSpawner" type="Node2D" parent="YSort"]
+position = Vector2(117, 310)
+script = ExtResource("8_rxat5")
+slime_scene = ExtResource("7_1rm5t")
