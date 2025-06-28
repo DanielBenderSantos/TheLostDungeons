@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq0pbsn4mq5uw"]
+[gd_scene load_steps=8 format=3 uid="uid://dq0pbsn4mq5uw"]
 
 [ext_resource type="PackedScene" uid="uid://dp4112rp3e38m" path="res://terrain/scenes/terrain.tscn" id="1_wwfh4"]
 [ext_resource type="PackedScene" uid="uid://c1vkoaf6cftuy" path="res://terrain/scenes/objects_terrain.tscn" id="2_0r7rc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dbuayt3nc5f8p" path="res://character/scenes/character.tscn" id="2_r6pug"]
 [ext_resource type="PackedScene" uid="uid://dunayucbq1u35" path="res://components/scenes/door_component.tscn" id="5_7inod"]
 [ext_resource type="PackedScene" uid="uid://b8h0a6j8vm0yt" path="res://character/scenes/slime.tscn" id="6_lo8o4"]
+[ext_resource type="PackedScene" uid="uid://j54r0o6xxebu" path="res://character/scenes/slimeDeFogo.tscn" id="7_1rm5t"]
 
 [node name="Level" type="Node2D"]
 
@@ -42,3 +43,6 @@ layer_0/tile_data = PackedInt32Array(589830, 0, 5, -131052, 0, 5, 393248, 524288
 
 [node name="Slime" parent="YSort" instance=ExtResource("6_lo8o4")]
 position = Vector2(192, 296)
+
+[node name="Slime2" parent="YSort" instance=ExtResource("7_1rm5t")]
+position = Vector2(51, 115)
