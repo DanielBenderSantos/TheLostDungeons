@@ -77,7 +77,7 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_attack_area_body_entered(_body) -> void:
 	if  _body.is_in_group("enemy"):
-		_body.update_health()
+		_body.take_damage()
 
 func die() -> void:
 	is_dead = true
