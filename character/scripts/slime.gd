@@ -10,7 +10,6 @@ var _texture: Sprite2D
 var _animation: AnimationPlayer
 
 func _ready():
-	print("🔥 Slime carregado na cena!")
 
 	_texture = $Texture
 	_animation = $Animation

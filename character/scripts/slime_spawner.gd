@@ -9,9 +9,9 @@ var timer = null
 func _ready():
 	spawn_slime()
 	_on_slime_died()
+	
 func spawn_slime():
 	# Cria o slime
-	print("✅ Spawnando slime")
 	current_slime = slime_scene.instantiate()
 	current_slime.global_position = self.global_position
 	get_parent().add_child(current_slime)
