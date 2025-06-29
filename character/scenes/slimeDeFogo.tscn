@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://j54r0o6xxebu"]
+
+[ext_resource type="Script" uid="uid://bxnmc0pa3ydgq" path="res://character/scripts/slime_de_fogo.gd" id="1_m2v2v"]
+[ext_resource type="Texture2D" uid="uid://smr1fg00cong" path="res://character/assets/SlimeDeFogo.png" id="2_rbgpr"]
+
+[sub_resource type="Animation" id="Animation_dw76a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rbgpr"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
+}
+
+[sub_resource type="Animation" id="Animation_3i7k6"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_m2v2v"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 71, 72, 73, 74, 75, 76, 77]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qkknr"]
+_data = {
+&"RESET": SubResource("Animation_dw76a"),
+&"death": SubResource("Animation_rbgpr"),
+&"idle": SubResource("Animation_3i7k6"),
+&"walk": SubResource("Animation_m2v2v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2v2v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2v2v"]
+
+[node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["enemy"]]
+script = ExtResource("1_m2v2v")
+_texture = NodePath("Texture")
+_animation = NodePath("Animation")
+metadata/_custom_type_script = "uid://cnyqvewq3mt1a"
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_rbgpr")
+hframes = 10
+vframes = 12
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qkknr")
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m2v2v")
+
+[node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+scale = Vector2(13.192, 13.192)
+shape = SubResource("CircleShape2D_m2v2v")
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_finished"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
