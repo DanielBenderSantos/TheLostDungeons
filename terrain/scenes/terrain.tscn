@@ -491,7 +491,6 @@ sources/3 = SubResource("TileSetAtlasSource_blpwk")
 [node name="Terrain" type="TileMap"]
 tile_set = SubResource("TileSet_wlpf5")
 collision_animatable = true
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "base_terrain"
 layer_1/name = "cliff_terrain"

@@ -6,14 +6,18 @@ signal slime_died
 var _is_dead: bool = false
 var _player_ref = null
 
-@export_category("Objects")
-@export var _texture: Sprite2D = null
-@export var _animation: AnimationPlayer = null
+var _texture: Sprite2D
+var _animation: AnimationPlayer
 
 func _ready():
-	# Conectar o sinal da animação ao método que detecta a morte
-	_animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	print("🔥 Slime carregado na cena!")
 
+	_texture = $Texture
+	_animation = $Animation
+	_animation.play("idle")
+
+	_animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	
 func _on_detection_area_body_entered(_body) -> void:
 	if _body.is_in_group("character"):
 		_player_ref = _body
@@ -56,7 +60,6 @@ func _animate() -> void:
 
 	_animation.play("idle")
 
-# Mata o slime com um golpe só
 func take_damage():
 	if _is_dead:
 		return

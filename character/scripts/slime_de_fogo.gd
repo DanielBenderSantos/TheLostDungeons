@@ -50,7 +50,7 @@ func _animate() -> void:
 
 	_animation.play("idle")
 	
-func update_health() -> void:
+func take_damage() -> void:
 	_is_dead = true
 	_animation.play("death")
 
