@@ -440,13 +440,6 @@ texture = ExtResource("4_on4s8")
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0/terrains_peering_bit/right_side = 2
 1:2/0/terrains_peering_bit/top_side = 2
-2:2/0 = 0
-2:2/0/terrain_set = 0
-2:2/0/terrain = 2
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0/terrains_peering_bit/right_side = 2
-2:2/0/terrains_peering_bit/left_side = 2
-2:2/0/terrains_peering_bit/top_side = 2
 3:2/0 = 0
 3:2/0/terrain_set = 0
 3:2/0/terrain = 2
@@ -473,6 +466,13 @@ texture = ExtResource("4_on4s8")
 3:3/0/terrain = 2
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0/terrains_peering_bit/left_side = 2
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 2
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/terrains_peering_bit/right_side = 2
+2:2/0/terrains_peering_bit/left_side = 2
+2:2/0/terrains_peering_bit/top_side = 2
 
 [sub_resource type="TileSet" id="TileSet_wlpf5"]
 physics_layer_0/collision_layer = 1
