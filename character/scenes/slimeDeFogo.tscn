@@ -97,6 +97,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_m2v2v"]
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
+safe_margin = 0.18
 script = ExtResource("1_m2v2v")
 metadata/_custom_type_script = "uid://cnyqvewq3mt1a"
 
@@ -114,7 +115,6 @@ libraries = {
 shape = SubResource("CircleShape2D_rbgpr")
 
 [node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
-visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
 scale = Vector2(13.192, 13.192)
