@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 [gd_scene load_steps=9 format=3 uid="uid://dq0pbsn4mq5uw"]
+=======
+
+[gd_scene load_steps=9 format=3 uid="uid://dq0pbsn4mq5uw"]
+
+>>>>>>> 4eaef89ec8ca2d27a2af5ed9e845d1e8fd04ce6b
 
 [ext_resource type="PackedScene" uid="uid://dp4112rp3e38m" path="res://terrain/scenes/terrain.tscn" id="1_wwfh4"]
 [ext_resource type="PackedScene" uid="uid://c1vkoaf6cftuy" path="res://terrain/scenes/objects_terrain.tscn" id="2_0r7rc"]
@@ -6,8 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dbuayt3nc5f8p" path="res://character/scenes/character.tscn" id="2_r6pug"]
 [ext_resource type="PackedScene" uid="uid://b7tx8dqrycup8" path="res://components/scenes/door_componentDungeon.tscn" id="4_rxat5"]
 [ext_resource type="PackedScene" uid="uid://dunayucbq1u35" path="res://components/scenes/door_component.tscn" id="5_7inod"]
-[ext_resource type="Script" uid="uid://byc53pm0moc4y" path="res://character/scripts/slime_spawner.gd" id="6_lo8o4"]
-[ext_resource type="PackedScene" uid="uid://b8h0a6j8vm0yt" path="res://character/scenes/slime.tscn" id="7_1rm5t"]
+
+[ext_resource type="PackedScene" uid="uid://b8h0a6j8vm0yt" path="res://character/scenes/slime.tscn" id="6_lo8o4"]
+[ext_resource type="PackedScene" uid="uid://j54r0o6xxebu" path="res://character/scenes/slimeDeFogo.tscn" id="7_1rm5t"]
+[ext_resource type="Script" uid="uid://drrd8slcike78" path="res://character/scripts/slime_spawner.gd" id="8_rxat5"]
+
 
 [node name="Level" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-411.0]
@@ -59,7 +68,14 @@ position = Vector2(352, -259)
 [node name="objectsTerrain" parent="YSort" instance=ExtResource("2_0r7rc")]
 layer_0/tile_data = PackedInt32Array(589830, 0, 5, -131052, 0, 5, 393248, 524288, 6, 36, 524288, 6, 393236, 655360, 7, 393227, 0, 1, -65531, 0, 1, -327674, 0, 1, -655328, 0, 5, -655349, 0, 5, -720875, 327680, 0, 1179720, 720896, 2, 1245260, 655360, 0, 720917, 393216, 7, 1048583, 393216, 7, 1114110, 393216, 7, 589844, 0, 0, 1048614, 0, 1, 983080, 0, 1, 1048618, 0, 1, 917495, 0, 1, 1179641, 0, 1, -131078, 0, 1, -1114086, 0, 1, -393197, 0, 1, -393176, 0, 1, -1114073, 0, 1, 1048609, 655360, 7)
 
+
+[node name="Slime" parent="YSort" instance=ExtResource("6_lo8o4")]
+position = Vector2(333, 59)
+
+[node name="SlimeDeFogo" parent="YSort" instance=ExtResource("7_1rm5t")]
+position = Vector2(73, 54)
+
 [node name="SlimeSpawner" type="Node2D" parent="YSort"]
-position = Vector2(19, 181)
-script = ExtResource("6_lo8o4")
+position = Vector2(117, 310)
+script = ExtResource("8_rxat5")
 slime_scene = ExtResource("7_1rm5t")
