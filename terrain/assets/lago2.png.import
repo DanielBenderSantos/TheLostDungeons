@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c72rd5n1sioxe"
-path="res://.godot/imported/pixel-art-house-export.png-09848d87b7eaaf57f739b81d7e937887.ctex"
+uid="uid://dg8c4xghd2lr"
+path="res://.godot/imported/lago2.png-09cafdaac6f2a2245843debdf0ef55eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://terrain/scenes/pixel-art-house-export.png"
-dest_files=["res://.godot/imported/pixel-art-house-export.png-09848d87b7eaaf57f739b81d7e937887.ctex"]
+source_file="res://terrain/assets/lago2.png"
+dest_files=["res://.godot/imported/lago2.png-09cafdaac6f2a2245843debdf0ef55eb.ctex"]
 
 [params]
 
