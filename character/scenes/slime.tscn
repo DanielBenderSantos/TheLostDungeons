@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8h0a6j8vm0yt"]
+[gd_scene load_steps=11 format=3 uid="uid://b8h0a6j8vm0yt"]
 
 [ext_resource type="Script" uid="uid://cnyqvewq3mt1a" path="res://character/scripts/slime.gd" id="1_jw2vn"]
 [ext_resource type="Texture2D" uid="uid://p0br3cse5vwi" path="res://character/assets/slime.png" id="1_mpp2a"]
@@ -68,23 +68,39 @@ tracks/0/keys = {
 "values": [28, 29, 30, 31, 32, 33]
 }
 
+[sub_resource type="Animation" id="Animation_u6qym"]
+resource_name = "hitReaction"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [63, 64, 65]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u6qym"]
 _data = {
 &"RESET": SubResource("Animation_fsvpi"),
 &"death": SubResource("Animation_mpp2a"),
+&"hitReaction": SubResource("Animation_u6qym"),
 &"idle": SubResource("Animation_jw2vn"),
 &"walk": SubResource("Animation_b231s")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpp2a"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsvpi"]
+radius = 12.2608
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jw2vn"]
 
-[node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["enemy"]]
+[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 z_index = 1
 script = ExtResource("1_jw2vn")
-_texture = NodePath("Texture")
-_animation = NodePath("Animation")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_mpp2a")
@@ -98,11 +114,12 @@ libraries = {
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-position = Vector2(0, 5)
-scale = Vector2(0.994162, 0.9789)
-shape = SubResource("RectangleShape2D_mpp2a")
+position = Vector2(5.96046e-08, 1)
+scale = Vector2(0.67887, 0.731605)
+shape = SubResource("CircleShape2D_fsvpi")
 
 [node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
 show_behind_parent = true
