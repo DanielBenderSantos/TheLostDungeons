@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c4mpvpixbcufk" path="res://terrain/assets/base_terrain/plains.png" id="2_3pr3b"]
 [ext_resource type="Texture2D" uid="uid://bf5ov5tldnjmd" path="res://terrain/assets/base_terrain/decor_16x16.png" id="3_wlpf5"]
 [ext_resource type="Texture2D" uid="uid://cpqtinn68g8wl" path="res://terrain/assets/fences.png" id="4_on4s8"]
-[ext_resource type="Texture2D" uid="uid://cn6wfj588ldh5" path="res://terrain/assets/caves/0mrtr0ip7gk61.webp" id="5_njwxd"]
+[ext_resource type="Texture2D" uid="uid://ov7kxekiiiy1" path="res://terrain/assets/caves/caverna.png" id="5_blpwk"]
 [ext_resource type="Texture2D" uid="uid://bb2bgkej7rjx" path="res://terrain/assets/lake_tileset_16px.png" id="5_on4s8"]
 [ext_resource type="Texture2D" uid="uid://btduxrgnfjml7" path="res://terrain/assets/caves/map_2.png" id="7_blpwk"]
 
@@ -478,7 +478,7 @@ texture = ExtResource("4_on4s8")
 3:3/0/terrains_peering_bit/left_side = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1kdc"]
-texture = ExtResource("5_njwxd")
+texture = ExtResource("5_blpwk")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -3701,8 +3701,8 @@ sources/1 = SubResource("TileSetAtlasSource_fqowp")
 sources/2 = SubResource("TileSetAtlasSource_njwxd")
 sources/3 = SubResource("TileSetAtlasSource_blpwk")
 sources/5 = SubResource("TileSetAtlasSource_wld11")
-sources/4 = SubResource("TileSetAtlasSource_d1kdc")
 sources/6 = SubResource("TileSetAtlasSource_tp0uj")
+sources/4 = SubResource("TileSetAtlasSource_d1kdc")
 
 [node name="Terrain" type="TileMap"]
 tile_set = SubResource("TileSet_wlpf5")
