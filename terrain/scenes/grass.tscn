@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b76ihj1xc1ltm"]
+
+[ext_resource type="Texture2D" uid="uid://x6c57t6tip68" path="res://terrain/assets/base_terrain/grass.png" id="1_g8rer"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rp4p"]
+texture = ExtResource("1_g8rer")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_eubtb"]
+sources/0 = SubResource("TileSetAtlasSource_2rp4p")
+
+[node name="grama" type="TileMapLayer"]
+tile_set = SubResource("TileSet_eubtb")
