@@ -887,6 +887,7 @@ shape = SubResource("RectangleShape2D_rkhd4")
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, 12)

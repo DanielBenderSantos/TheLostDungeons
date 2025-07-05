@@ -34,6 +34,22 @@ tracks/0/keys = {
 "values": [84, 85, 86, 87, 88]
 }
 
+[sub_resource type="Animation" id="Animation_u6qym"]
+resource_name = "hitReaction"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [63, 64, 65]
+}
+
 [sub_resource type="Animation" id="Animation_jw2vn"]
 resource_name = "idle"
 length = 0.4
@@ -66,22 +82,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [28, 29, 30, 31, 32, 33]
-}
-
-[sub_resource type="Animation" id="Animation_u6qym"]
-resource_name = "hitReaction"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [63, 64, 65]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u6qym"]

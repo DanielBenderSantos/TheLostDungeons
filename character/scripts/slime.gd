@@ -127,3 +127,7 @@ func _on_animation_finished(_anim_name: String) -> void:
 		is_hit_reacting = false
 		print("saiu")
 		_animate()
+
+
+func _on_slime_died() -> void:
+	pass # Replace with function body.
