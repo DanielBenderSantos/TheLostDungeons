@@ -112,9 +112,11 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_rbgpr")
 
 [node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
 scale = Vector2(13.192, 13.192)
