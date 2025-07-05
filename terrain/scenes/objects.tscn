@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://fi7si63prjft"]
+
+[ext_resource type="Texture2D" uid="uid://dbh6jw3q2fyck" path="res://terrain/assets/objects.png" id="1_dek3g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thsvo"]
+texture = ExtResource("1_dek3g")
+6:7/size_in_atlas = Vector2i(2, 2)
+6:7/0 = 0
+8:6/size_in_atlas = Vector2i(2, 3)
+8:6/0 = 0
+10:7/size_in_atlas = Vector2i(2, 2)
+10:7/0 = 0
+0:5/size_in_atlas = Vector2i(3, 4)
+0:5/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+5:0/0 = 0
+10:0/size_in_atlas = Vector2i(2, 1)
+10:0/0 = 0
+11:2/size_in_atlas = Vector2i(1, 2)
+11:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tys4c"]
+sources/0 = SubResource("TileSetAtlasSource_thsvo")
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_set = SubResource("TileSet_tys4c")
