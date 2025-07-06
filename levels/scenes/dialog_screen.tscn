@@ -9,7 +9,7 @@ line_spacing = 0.0
 font = ExtResource("2_lud0l")
 shadow_color = Color(0, 0, 0, 0.6)
 
-[node name="DialogScreen" type="Control" node_paths=PackedStringArray("_faceset", "_name", "_dialog")]
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("_faceset", "_name", "_dialog", "narration_player")]
 custom_minimum_size = Vector2(320, 80)
 layout_mode = 3
 anchors_preset = 7
@@ -27,6 +27,9 @@ script = ExtResource("1_lud0l")
 _faceset = NodePath("Background/HContainer/Border/Faceset")
 _name = NodePath("Background/HContainer/VContainer/Name")
 _dialog = NodePath("Background/HContainer/VContainer/Dialog")
+narration_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

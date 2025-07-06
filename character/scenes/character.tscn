@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b8beys0vx50cq" path="res://levels/assets/icone.png" id="5_deaer"]
 
 [sub_resource type="Gradient" id="Gradient_3rmcm"]
-offsets = PackedFloat32Array(0, 0.219048, 1)
-colors = PackedColorArray(0.946615, 0.269879, 0.31609, 1, 0.876805, 0.669065, 0.193262, 1, 6.97896e-07, 0.671494, 0.0829488, 1)
+offsets = PackedFloat32Array(0, 0.285714, 1)
+colors = PackedColorArray(0.772549, 0, 0, 1, 0.311574, 0.44947, 0.477574, 1, 0.152628, 0.4127, 0.694261, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_iskry"]
 gradient = SubResource("Gradient_3rmcm")
