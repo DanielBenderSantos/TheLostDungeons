@@ -912,8 +912,6 @@ one_shot = true
 show_behind_parent = true
 shape = SubResource("RectangleShape2D_rkhd4")
 
-[node name="Camera" type="Camera2D" parent="."]
-
 [node name="AttackArea" type="Area2D" parent="."]
 visible = false
 
