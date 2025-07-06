@@ -128,4 +128,4 @@ func _on_animation_finished(_anim_name: String) -> void:
 		_animate()
 
 func _on_slime_died() -> void:
-	pass # Replace with function body.
+	pass # Replace with function body.s
