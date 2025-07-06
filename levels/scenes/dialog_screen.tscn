@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bp2juojucg161"]
 
 [ext_resource type="Script" uid="uid://b81a2w6hex8no" path="res://levels/scripts/dialog_screen.gd" id="1_lud0l"]
-[ext_resource type="Texture2D" uid="uid://c3sc5ntae584u" path="res://levels/assets/subaru.jpg" id="1_r2ijf"]
+[ext_resource type="Texture2D" uid="uid://byltnf3bpe4hg" path="res://levels/assets/Anora_M_Pixel.png" id="2_gota4"]
 [ext_resource type="FontFile" uid="uid://tn3ue0xd25f6" path="res://levels/fonts/Henika.ttf" id="2_lud0l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gota4"]
@@ -70,7 +70,7 @@ offset_right = 35.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_r2ijf")
+texture = ExtResource("2_gota4")
 expand_mode = 1
 stretch_mode = 5
 
