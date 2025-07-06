@@ -39,6 +39,8 @@ func _on_detection_area_body_entered(_body) -> void:
 func _on_detection_area_body_exited(_body) -> void:
 	if _body.is_in_group("character"):
 		_player_ref = null
+		velocity = Vector2.ZERO
+		_animate()
 
 func _physics_process(_delta: float) -> void:
 	if _is_dead:
@@ -101,7 +103,6 @@ func take_damage(from_position: Vector2):
 
 	is_hit_reacting = true
 	_animation.play("hitReaction")
-	print("entrou")
 
 	var knockback_direction = (global_position - from_position).normalized()
 	apply_knockback(knockback_direction * 150)
@@ -118,16 +119,13 @@ func die() -> void:
 	_animation.play("death")
 
 func _on_animation_finished(_anim_name: String) -> void:
-	print("saiu2")
 
 	if _anim_name == "death":
 		emit_signal("slime_died")
 		queue_free()
 	elif _anim_name == "hitReaction":
 		is_hit_reacting = false
-		print("saiu")
 		_animate()
 
-
 func _on_slime_died() -> void:
-	pass # Replace with function body.
+	pass # Replace with function body.s

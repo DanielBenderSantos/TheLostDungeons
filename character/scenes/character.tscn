@@ -1,7 +1,16 @@
-[gd_scene load_steps=41 format=3 uid="uid://dbuayt3nc5f8p"]
+[gd_scene load_steps=45 format=3 uid="uid://dbuayt3nc5f8p"]
 
 [ext_resource type="Script" uid="uid://dqcdcmkeiao3g" path="res://character/scripts/character.gd" id="1_hg145"]
+[ext_resource type="Script" uid="uid://c5cyn2v600mf0" path="res://character/scripts/health_bar.gd" id="2_3rmcm"]
 [ext_resource type="Texture2D" uid="uid://dlv6qkfouy4h5" path="res://character/assets/player.png" id="2_r0tgy"]
+[ext_resource type="Texture2D" uid="uid://b8beys0vx50cq" path="res://levels/assets/icone.png" id="5_deaer"]
+
+[sub_resource type="Gradient" id="Gradient_3rmcm"]
+offsets = PackedFloat32Array(0, 0.504762, 1)
+colors = PackedColorArray(0.772549, 0, 0, 1, 0.753727, 0.697332, 0.011092, 1, 0.192165, 0.480438, 0.182013, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iskry"]
+gradient = SubResource("Gradient_3rmcm")
 
 [sub_resource type="Animation" id="Animation_r0tgy"]
 length = 0.001
@@ -857,6 +866,25 @@ script = ExtResource("1_hg145")
 _attack_timer = NodePath("AttackTimer")
 _animation_tree = NodePath("AnimationTree")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="health_bar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+offset_left = 25.0
+offset_top = 7.0
+offset_right = 785.0
+offset_bottom = 220.0
+scale = Vector2(0.96, 0.2)
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_iskry")
+script = ExtResource("2_3rmcm")
+player = NodePath("../..")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 527.0
+offset_bottom = 149.0
+scale = Vector2(0.181, 0.19)
+texture = ExtResource("5_deaer")
+
 [node name="Texture" type="Sprite2D" parent="."]
 position = Vector2(-0.5, -17)
 texture = ExtResource("2_r0tgy")
@@ -883,8 +911,6 @@ one_shot = true
 [node name="Collision" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 shape = SubResource("RectangleShape2D_rkhd4")
-
-[node name="Camera" type="Camera2D" parent="."]
 
 [node name="AttackArea" type="Area2D" parent="."]
 visible = false

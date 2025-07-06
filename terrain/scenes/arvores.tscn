@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccan1v0pq1flc"]
+
+[ext_resource type="Texture2D" uid="uid://b7xm7xloe8pvr" path="res://terrain/assets/fazenda/exterior.png" id="1_uhkfn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hqwga"]
+texture = ExtResource("1_uhkfn")
+12:14/size_in_atlas = Vector2i(4, 4)
+12:14/0 = 0
+12:14/0/texture_origin = Vector2i(0, 5)
+12:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.55892, 13.5418, -4.1422, 11.63, 7.64714, 11.3114, 11.1521, 13.8604, 10.1962, 23.4194, -9.87755, 23.1007)
+13:18/size_in_atlas = Vector2i(3, 3)
+13:18/0 = 0
+13:18/0/texture_origin = Vector2i(0, 11)
+13:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.95689, -3.14753, 0.719435, -4.5864, 5.75548, -3.32739, 8, -0.809364, 8, 8, -8, 8)
+5:23/size_in_atlas = Vector2i(4, 5)
+5:23/0 = 0
+5:23/0/texture_origin = Vector2i(0, 28)
+5:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 11.6908, 1.16908, 12.4103, 8.36343, -3.41732, 10.3419, -10.2519, 6.92456)
+9:24/size_in_atlas = Vector2i(4, 4)
+9:24/0 = 0
+9:24/0/texture_origin = Vector2i(0, 23)
+9:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.85619, -4.94612, -2.51802, -8, 8, -5.48569, 8, 0.449647, 9.53251, 6.7447, -3.41732, 10.3419, -8, 1.34894)
+1:23/size_in_atlas = Vector2i(4, 5)
+1:23/0 = 0
+1:23/0/texture_origin = Vector2i(0, 26)
+1:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -14.3887, 5.66555)
+13:24/size_in_atlas = Vector2i(3, 3)
+13:24/0 = 0
+13:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:27/size_in_atlas = Vector2i(3, 3)
+13:27/0 = 0
+13:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_fvh6t"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_hqwga")
+
+[node name="arvores" type="TileMapLayer"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_fvh6t")
