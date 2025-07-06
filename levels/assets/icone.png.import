@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3sc5ntae584u"
-path="res://.godot/imported/subaru.jpg-775180cae4eb4ffe09cd441b6e5ec214.ctex"
+uid="uid://b8beys0vx50cq"
+path="res://.godot/imported/icone.png-85d552e7448d0905237156c97a4e4637.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/assets/subaru.jpg"
-dest_files=["res://.godot/imported/subaru.jpg-775180cae4eb4ffe09cd441b6e5ec214.ctex"]
+source_file="res://levels/assets/icone.png"
+dest_files=["res://.godot/imported/icone.png-85d552e7448d0905237156c97a4e4637.ctex"]
 
 [params]
 

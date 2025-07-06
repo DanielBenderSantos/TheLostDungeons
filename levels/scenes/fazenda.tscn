@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://2y7hy85b1nvh"]
+[gd_scene load_steps=12 format=4 uid="uid://2y7hy85b1nvh"]
 
 [ext_resource type="PackedScene" path="res://terrain/scenes/grass.tscn" id="1_5v1wx"]
 [ext_resource type="PackedScene" uid="uid://dlp43eyx2d0r1" path="res://terrain/scenes/floor.tscn" id="2_jc41l"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dunayucbq1u35" path="res://components/scenes/door_component.tscn" id="6_qlqcw"]
 [ext_resource type="PackedScene" uid="uid://bqrumih1njgro" path="res://terrain/scenes/furniture.tscn" id="7_jx1cu"]
 [ext_resource type="PackedScene" uid="uid://b7tx8dqrycup8" path="res://components/scenes/door_componentDungeon.tscn" id="8_yjr2e"]
+[ext_resource type="PackedScene" uid="uid://s2wy1y5fbe6r" path="res://character/scenes/slimeDeOsso.tscn" id="11_p6ogn"]
 
 [node name="fazenda" type="Node2D"]
 
@@ -51,3 +52,6 @@ _teleport_position = Vector2(-15, -60)
 
 [node name="Character" parent="." instance=ExtResource("4_sgab2")]
 position = Vector2(39, 43)
+
+[node name="Slime" parent="." instance=ExtResource("11_p6ogn")]
+position = Vector2(210, 170)

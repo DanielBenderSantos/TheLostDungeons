@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TheLostDungeons"
-run/main_scene="uid://dn58nf4vja5fs"
+run/main_scene="uid://b1n8ydtrre34a"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
