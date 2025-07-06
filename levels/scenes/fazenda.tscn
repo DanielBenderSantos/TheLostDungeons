@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://2y7hy85b1nvh"]
+[gd_scene load_steps=14 format=4 uid="uid://2y7hy85b1nvh"]
 
 [ext_resource type="PackedScene" path="res://terrain/scenes/grass.tscn" id="1_5v1wx"]
 [ext_resource type="PackedScene" uid="uid://dlp43eyx2d0r1" path="res://terrain/scenes/floor.tscn" id="2_jc41l"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bqrumih1njgro" path="res://terrain/scenes/furniture.tscn" id="7_jx1cu"]
 [ext_resource type="PackedScene" uid="uid://b7tx8dqrycup8" path="res://components/scenes/door_componentDungeon.tscn" id="8_yjr2e"]
 [ext_resource type="Script" uid="uid://ictir5u0loto" path="res://levels/scripts/camera.gd" id="12_qclv5"]
+[ext_resource type="PackedScene" uid="uid://s2wy1y5fbe6r" path="res://character/scenes/slimeDeOsso.tscn" id="13_yny22"]
 
 [node name="fazenda" type="Node2D"]
 
@@ -92,3 +93,6 @@ position = Vector2(299, 307)
 
 [node name="arvores" parent="YSort" instance=ExtResource("5_qclv5")]
 tile_map_data = PackedByteArray("AAAVABAAAAAMAA4AAAA=")
+
+[node name="Slime" parent="." instance=ExtResource("13_yny22")]
+position = Vector2(446, 410)

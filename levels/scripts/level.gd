@@ -5,7 +5,7 @@ const _DIALOG_SCREEN: PackedScene = preload("res://levels/scenes/dialog_screen.t
 
 var _dialog_data: Dictionary = {
 	0: { "faceset": "res://levels/assets/criador.png", "dialog": "Em um mundo repleto de aventureiros e tesouros, nasceu Anora — um jovem de espírito inquieto e sede insaciável por descobertas.", "title": "Narrador" },
-	1: { "faceset": "res://levels/assets/criador.png", "dialog": "Desde criança, ouvia lendas sobre as enigmáticas 'Masmorras Perdidas' — locais que ninguém jamais conseguiu explorar e voltar para contar.", "title": "Narrador" },
+		1: { "faceset": "res://levels/assets/criador.png", "dialog": "Desde criança, ouvia lendas sobre as enigmáticas 'Masmorras Perdidas' — locais que ninguém jamais conseguiu explorar e voltar para contar.", "title": "Narrador" },
 	2: { "faceset": "res://levels/assets/criador.png", "dialog": "Dizem que existem cinco dessas masmorras espalhadas pelo mundo, cada uma cercada de mistérios e perigos.", "title": "Narrador" },
 	3: { "faceset": "res://levels/assets/criador.png", "dialog": "Alguns acreditam que quem as adentra é transportado para outra dimensão. Outros falam de tesouros capazes de realizar qualquer desejo.", "title": "Narrador" },
 	4: { "faceset": "res://levels/assets/criador.png", "dialog": "Há ainda quem afirme que tudo não passa de armadilhas mortais, repletas de gases venenosos e ilusões letais.", "title": "Narrador" },
