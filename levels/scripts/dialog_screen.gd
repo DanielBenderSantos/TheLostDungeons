@@ -11,14 +11,13 @@ signal dialog_finished
 var data: Dictionary = {}
 var _id: int = 0
 var _step: float = 0.05
-
 var _is_skipping: bool = false
 
-func _ready() -> void:
+func setup() -> void:
+	await ready  # Garante que o node já está na árvore
 	_initialize_dialog()
 
 func _process(_delta: float) -> void:
-	# Controla a velocidade de escrita quando segurar o botão
 	if Input.is_action_pressed("ui_accept"):
 		_is_skipping = true
 	else:
@@ -26,14 +25,11 @@ func _process(_delta: float) -> void:
 
 	_step = 0.01 if _is_skipping else 0.05
 
-	# Avança o texto ou o diálogo
 	if Input.is_action_just_pressed("ui_accept"):
 		if _dialog.visible_ratio < 1:
-			# Mostra tudo de uma vez se ainda estiver digitando
 			_dialog.visible_characters = _dialog.text.length()
 			return
-		
-		# Avança para o próximo diálogo
+
 		_id += 1
 		if _id == data.size():
 			emit_signal("dialog_finished")
