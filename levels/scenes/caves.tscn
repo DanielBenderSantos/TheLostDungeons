@@ -27,7 +27,7 @@ visible = false
 position = Vector2(0, -223)
 
 [node name="Character" parent="." instance=ExtResource("4_5aoo0")]
-position = Vector2(1500, -317)
+position = Vector2(-138, -411)
 
 [node name="Slime" parent="." instance=ExtResource("7_f2700")]
-position = Vector2(1468, -191)
+position = Vector2(1243, -8)

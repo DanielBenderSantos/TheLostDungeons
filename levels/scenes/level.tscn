@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1n8ydtrre34a"]
+
+[ext_resource type="Script" uid="uid://inmt3bwe7npn" path="res://levels/scripts/level.gd" id="1_uj4xn"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("_hud")]
+script = ExtResource("1_uj4xn")
+_hud = NodePath("HUD")
+
+[node name="HUD" type="CanvasLayer" parent="."]
