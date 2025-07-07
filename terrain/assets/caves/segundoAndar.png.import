@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btduxrgnfjml7"
-path="res://.godot/imported/map_2.png-12eefaa3cd63c3923351d70982fdffb7.ctex"
+uid="uid://pqox340k3p6v"
+path="res://.godot/imported/segundoAndar.png-5b90b7e665b9fc3718ccb6665fa1e438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://terrain/assets/caves/map_2.png"
-dest_files=["res://.godot/imported/map_2.png-12eefaa3cd63c3923351d70982fdffb7.ctex"]
+source_file="res://terrain/assets/caves/segundoAndar.png"
+dest_files=["res://.godot/imported/segundoAndar.png-5b90b7e665b9fc3718ccb6665fa1e438.ctex"]
 
 [params]
 
