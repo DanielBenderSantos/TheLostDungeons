@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://2y7hy85b1nvh"]
+[gd_scene load_steps=17 format=4 uid="uid://2y7hy85b1nvh"]
 
 [ext_resource type="PackedScene" uid="uid://tyhsjg55fugs" path="res://terrain/scenes/grass.tscn" id="1_5v1wx"]
 [ext_resource type="PackedScene" uid="uid://dlp43eyx2d0r1" path="res://terrain/scenes/floor.tscn" id="2_jc41l"]
@@ -10,9 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://7s2yxjhknuyb" path="res://terrain/scenes/house_floor.tscn" id="5_twbob"]
 [ext_resource type="PackedScene" uid="uid://dunayucbq1u35" path="res://components/scenes/door_component.tscn" id="6_qlqcw"]
 [ext_resource type="PackedScene" uid="uid://bqrumih1njgro" path="res://terrain/scenes/furniture.tscn" id="7_jx1cu"]
+[ext_resource type="PackedScene" uid="uid://byavs1lpa8dxn" path="res://terrain/scenes/paredeInvisivel.tscn" id="8_e2jie"]
 [ext_resource type="PackedScene" uid="uid://b7tx8dqrycup8" path="res://components/scenes/door_componentDungeon.tscn" id="8_yjr2e"]
 [ext_resource type="Script" uid="uid://ictir5u0loto" path="res://levels/scripts/camera.gd" id="12_qclv5"]
 [ext_resource type="PackedScene" uid="uid://j54r0o6xxebu" path="res://character/scenes/slimeDeFogo.tscn" id="14_cm25l"]
+[ext_resource type="Script" uid="uid://badivj7fkg7ds" path="res://levels/scripts/mudar_cena.gd" id="14_xq6dy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2jie"]
 
 [node name="fazenda" type="Node2D"]
 
@@ -47,6 +51,9 @@ tile_map_data = PackedByteArray("AADB//P/AAABABEAAADB//T/AAABABIAAADB//X/AAABABM
 [node name="furniture2" parent="mapas/casa" instance=ExtResource("7_jx1cu")]
 tile_map_data = PackedByteArray("AAC+/+3/AAAEAAUAAAC+/+7/AAAEAAYAAAC+/+//AAAEAAcAAAC+//D/AAAEAAgAAAC//+3/AAAFAAUAAAC//+7/AAAFAAYAAAC//+//AAAFAAcAAAC///D/AAAFAAgAAADA/+3/AAAGAAUAAADA/+7/AAAGAAYAAADA/+//AAAGAAcAAADA//D/AAAGAAgAAADA//X/AAAAABMAAADA//b/AAAAABQAAADB//P/AAABABEAAADB//T/AAAAAAkAAADB//X/AAAAAAoAAADB//b/AAAAAAsAAADB//f/AAABABUAAADC//P/AAACABEAAADC//T/AAACABIAAADC//X/AAABAAoAAADC//b/AAABAAsAAADC//f/AAABAAwAAADC//j/AAACABYAAADD//P/AAADABEAAADD//T/AAACAAkAAADD//X/AAACAAoAAADD//b/AAACAAsAAADD//f/AAACAAwAAADD//j/AAADABYAAADE//P/AAAEABEAAADE//T/AAAEABIAAADE//X/AAADAAoAAADE//b/AAADAAsAAADE//f/AAADAAwAAADE//j/AAAEABYAAADF//P/AAAFABEAAADF//T/AAAEAAkAAADF//X/AAAEAAoAAADF//b/AAAEAAsAAADF//f/AAAFABUAAADG//b/AAAGABQAAADH/+3/AAAKAAUAAADH/+7/AAAKAAYAAADI/+3/AAALAAUAAADI/+7/AAALAAYAAADI/+//AAALAAcAAADK/+3/AAAKAAUAAADK/+7/AAAKAAYAAADK/+//AAAKAAcAAADL/+3/AAALAAUAAADL/+7/AAALAAYAAADL/+//AAALAAcAAADT//X/AAAHAAsAAADT//b/AAAHAAwAAADU//X/AAAIAAsAAADU//b/AAAIAAwAAADV//X/AAAJAAsAAADV//b/AAAJAAwAAADW//X/AAAFAAkAAADW//b/AAAFAAoAAADW//f/AAAFAAsAAADX//X/AAAGAAkAAADX//b/AAAGAAoAAADX//f/AAAGAAsAAAC3//T/AAAJAAAAAAC3//X/AAAJAAEAAAC4//T/AAAKAAAAAAC4//X/AAAKAAEAAAC5//T/AAAJAAAAAAC5//X/AAAJAAEAAAC6//T/AAAKAAAAAAC6//X/AAAKAAEAAAC7//T/AAAJAAAAAAC7//X/AAAJAAEAAAC8//T/AAAKAAAAAAC8//X/AAAKAAEAAAA=")
 
+[node name="paradeInvisivel" parent="mapas/casa" instance=ExtResource("8_e2jie")]
+tile_map_data = PackedByteArray("AAC3//r/AAAAAAAAAAC4//r/AAAAAAAAAAC5//r/AAAAAAAAAAC6//r/AAAAAAAAAAC7//r/AAAAAAAAAAC8//r/AAAAAAAAAAC9//r/AAAAAAAAAAC+//r/AAAAAAAAAAC///r/AAAAAAAAAADC//r/AAAAAAAAAADD//r/AAAAAAAAAADE//r/AAAAAAAAAADF//r/AAAAAAAAAADG//r/AAAAAAAAAADH//r/AAAAAAAAAADI//r/AAAAAAAAAADJ//r/AAAAAAAAAADK//r/AAAAAAAAAADL//r/AAAAAAAAAADM//r/AAAAAAAAAADN//r/AAAAAAAAAADO//r/AAAAAAAAAADP//r/AAAAAAAAAADQ//r/AAAAAAAAAADR//r/AAAAAAAAAADS//r/AAAAAAAAAADT//r/AAAAAAAAAADU//r/AAAAAAAAAADV//r/AAAAAAAAAADW//r/AAAAAAAAAADX//r/AAAAAAAAAADY//r/AAAAAAAAAADZ//r/AAAAAAAAAADa//r/AAAAAAAAAADb//r/AAAAAAAAAADM//b/AAAAAAAAAADN//b/AAAAAAAAAADO//b/AAAAAAAAAADP//b/AAAAAAAAAADW/+z/AAAAAAAAAADZ/+z/AAAAAAAAAADa/+z/AAAAAAAAAADb/+z/AAAAAAAAAADc/+z/AAAAAAAAAADd/+z/AAAAAAAAAADe/+z/AAAAAAAAAADf/+z/AAAAAAAAAAAjAP7/AAAAAAAAAAAjAP//AAAAAAAAAAAjAAAAAAAAAAAAAAAjAAEAAAAAAAAAAADA//v/AAAAAAAAAADB//v/AAAAAAAAAADC//v/AAAAAAAAAAC///v/AAAAAAAAAAA=")
+
 [node name="Camera" type="Camera2D" parent="mapas" node_paths=PackedStringArray("player") groups=["camera"]]
 position = Vector2(148, -20)
 limit_left = 0
@@ -69,7 +76,7 @@ new_limit_bottom = 1000000
 
 [node name="portaVila" parent="portas" instance=ExtResource("6_qlqcw")]
 visible = false
-position = Vector2(879, 286)
+position = Vector2(943, 270)
 scale = Vector2(1.57599, 2.78543)
 _teleport_position = Vector2(-700, 200)
 new_limit_left = -1000000
@@ -89,10 +96,22 @@ y_sort_enabled = true
 
 [node name="Character" parent="YSort" instance=ExtResource("4_sgab2")]
 y_sort_enabled = true
-position = Vector2(299, 307)
+position = Vector2(849, 315)
 
 [node name="arvores" parent="YSort" instance=ExtResource("5_qclv5")]
 tile_map_data = PackedByteArray("AAAVABAAAAAMAA4AAAA0AA4AAAAFABcAAAAzAAQAAAAFABcAAAAfAAIAAAAFABcAAAADAAMAAAAFABcAAAACACMAAAAFABcAAAAEABYAAAAFABcAAAAcACgAAAAFABcAAAALACgAAAAFABcAAAAwACgAAAANABsAAAATACcAAAANABgAAAAQACkAAAANABgAAAAzABgAAAANABgAAAA=")
 
 [node name="Slime" parent="." instance=ExtResource("14_cm25l")]
-position = Vector2(517, 311)
+position = Vector2(292, 489)
+
+[node name="MudarCena" type="Area2D" parent="."]
+position = Vector2(10, 1)
+script = ExtResource("14_xq6dy")
+target_scene_path = "res://levels/scenes/vila.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MudarCena"]
+position = Vector2(871, 311)
+scale = Vector2(1.74845, 2.40745)
+shape = SubResource("RectangleShape2D_e2jie")
+
+[connection signal="body_entered" from="MudarCena" to="MudarCena" method="_on_body_entered"]

@@ -234,5 +234,5 @@ terrain_set_0/terrain_0/name = "mountain"
 terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_d8q3m")
 
-[node name="TileMapLayer" type="TileMapLayer"]
+[node name="mountain" type="TileMapLayer"]
 tile_set = SubResource("TileSet_0fk6j")

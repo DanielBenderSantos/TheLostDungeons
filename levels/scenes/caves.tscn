@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dqtucck5fae5r"]
+[gd_scene load_steps=8 format=4 uid="uid://dqtucck5fae5r"]
 
 [ext_resource type="PackedScene" uid="uid://fi7si63prjft" path="res://terrain/scenes/objects.tscn" id="3_a8vxc"]
 [ext_resource type="PackedScene" uid="uid://ds8d1q42foo51" path="res://terrain/scenes/segundo_andar.tscn" id="3_g8ylg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wojmlpdqp6hc" path="res://terrain/scenes/cave.tscn" id="4_f2700"]
 [ext_resource type="PackedScene" uid="uid://dunayucbq1u35" path="res://components/scenes/door_component.tscn" id="5_p45id"]
 [ext_resource type="PackedScene" uid="uid://s2wy1y5fbe6r" path="res://character/scenes/slimeDeOsso.tscn" id="7_f2700"]
+[ext_resource type="Script" uid="uid://ictir5u0loto" path="res://levels/scripts/camera.gd" id="7_wjt8q"]
 
 [node name="caves" type="Node2D"]
 
@@ -31,3 +32,7 @@ position = Vector2(-138, -411)
 
 [node name="Slime" parent="." instance=ExtResource("7_f2700")]
 position = Vector2(1243, -8)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("7_wjt8q")
+player = NodePath("../Character")

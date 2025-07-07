@@ -211,5 +211,5 @@ terrain_set_0/terrain_0/name = "floor"
 terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_drnvh")
 
-[node name="TileMapLayer" type="TileMapLayer"]
+[node name="chaoGrama" type="TileMapLayer"]
 tile_set = SubResource("TileSet_cdrgy")
