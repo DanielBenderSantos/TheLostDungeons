@@ -24,6 +24,9 @@ var is_hit_reacting: bool = false
 var attack_cooldown: float = 0.5
 var attack_timer: float = 0.0
 
+# Dano do slime
+@export var attack_damage: int = 10
+
 func _ready():
 	_texture = $Texture
 	_animation = $Animation
@@ -55,7 +58,6 @@ func _physics_process(_delta: float) -> void:
 
 	_animate()
 
-	# Atualiza cooldown de ataque
 	if attack_timer > 0:
 		attack_timer -= _delta
 
@@ -70,14 +72,13 @@ func _physics_process(_delta: float) -> void:
 
 		move_and_slide()
 
-		# Verifica colisões físicas
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
 			if collision.get_collider().is_in_group("character") and attack_timer <= 0:
 				var knockback_direction = (collision.get_collider().global_position - global_position).normalized()
 				collision.get_collider().apply_knockback(knockback_direction * 150)
-				collision.get_collider().take_damage()
-				attack_timer = attack_cooldown  # Reseta o cooldown de ataque
+				collision.get_collider().take_damage(attack_damage)  # Dano variável aqui
+				attack_timer = attack_cooldown
 
 func _animate() -> void:
 	if is_hit_reacting or _is_dead:
@@ -119,7 +120,6 @@ func die() -> void:
 	_animation.play("death")
 
 func _on_animation_finished(_anim_name: String) -> void:
-
 	if _anim_name == "death":
 		emit_signal("slime_died")
 		queue_free()
@@ -128,4 +128,4 @@ func _on_animation_finished(_anim_name: String) -> void:
 		_animate()
 
 func _on_slime_died() -> void:
-	pass # Replace with function body.s
+	pass
