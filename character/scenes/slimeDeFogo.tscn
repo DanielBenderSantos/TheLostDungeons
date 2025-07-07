@@ -99,6 +99,7 @@ _data = {
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 safe_margin = 0.18
 script = ExtResource("1_m2v2v")
+attack_damage = 20
 metadata/_custom_type_script = "uid://cnyqvewq3mt1a"
 
 [node name="Texture" type="Sprite2D" parent="."]
