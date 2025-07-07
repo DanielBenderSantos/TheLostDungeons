@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0db3bq7ja7e5"]
+[gd_scene load_steps=4 format=3 uid="uid://dkhcpy8ehuppd"]
 
-[ext_resource type="Texture2D" uid="uid://pqox340k3p6v" path="res://terrain/assets/caves/segundoAndar.png" id="1_p0r7v"]
+[ext_resource type="Texture2D" uid="uid://bwqd7c71ws67h" path="res://terrain/assets/caves/terceiAndar.png" id="1_stl2w"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0r7v"]
-texture = ExtResource("1_p0r7v")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nglb"]
+texture = ExtResource("1_stl2w")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -4101,8 +4101,8 @@ texture = ExtResource("1_p0r7v")
 62:63/0 = 0
 63:63/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_pmrf5"]
-sources/0 = SubResource("TileSetAtlasSource_p0r7v")
+[sub_resource type="TileSet" id="TileSet_1e1m7"]
+sources/0 = SubResource("TileSetAtlasSource_6nglb")
 
-[node name="TileMapLayer" type="TileMapLayer"]
-tile_set = SubResource("TileSet_pmrf5")
+[node name="terceiroAndar" type="TileMapLayer"]
+tile_set = SubResource("TileSet_1e1m7")

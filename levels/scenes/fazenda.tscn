@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://2y7hy85b1nvh"]
 
-[ext_resource type="PackedScene" path="res://terrain/scenes/grass.tscn" id="1_5v1wx"]
+[ext_resource type="PackedScene" uid="uid://b76ihj1xc1ltm" path="res://terrain/scenes/grass.tscn" id="1_5v1wx"]
 [ext_resource type="PackedScene" uid="uid://dlp43eyx2d0r1" path="res://terrain/scenes/floor.tscn" id="2_jc41l"]
 [ext_resource type="PackedScene" uid="uid://cfc0uj4acii16" path="res://terrain/scenes/mountain.tscn" id="3_qlqcw"]
 [ext_resource type="PackedScene" uid="uid://l22g6m30sul" path="res://terrain/scenes/casa.tscn" id="4_jc41l"]
