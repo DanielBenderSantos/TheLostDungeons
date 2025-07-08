@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://crm6vlfcerva7"]
 
-[ext_resource type="Script" uid="uid://nd6d8pf8shp1" path="res://character/scripts/plant_assasin.gd" id="1_iqso8"]
+[ext_resource type="Script" uid="uid://cnyqvewq3mt1a" path="res://character/scripts/slime.gd" id="1_iqso8"]
 [ext_resource type="Texture2D" uid="uid://bs27g02nyvvom" path="res://character/assets/Plant1_Combined.png" id="2_tnoj5"]
 
 [sub_resource type="Animation" id="Animation_lv15j"]
@@ -77,10 +77,10 @@ tracks/0/path = NodePath("Texture:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [60, 61, 62, 63, 64, 65, 60]
+"values": [70, 71, 72, 73, 74, 75]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4qbk"]
@@ -93,7 +93,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnoj5"]
-size = Vector2(63.5, 71.5)
+size = Vector2(34, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ulnk"]
 radius = 167.0
@@ -114,7 +114,7 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tnoj5")
 
 [node name="detectionArea" type="Area2D" parent="." groups=["enemy"]]
@@ -122,5 +122,5 @@ shape = SubResource("RectangleShape2D_tnoj5")
 [node name="Collision" type="CollisionShape2D" parent="detectionArea"]
 shape = SubResource("CircleShape2D_2ulnk")
 
-[connection signal="area_entered" from="detectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
