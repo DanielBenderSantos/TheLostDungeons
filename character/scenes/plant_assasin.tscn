@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://crm6vlfcerva7"]
+
+[ext_resource type="Script" uid="uid://cnyqvewq3mt1a" path="res://character/scripts/slime.gd" id="1_iqso8"]
+[ext_resource type="Texture2D" uid="uid://bs27g02nyvvom" path="res://character/assets/Plant1_Combined.png" id="2_tnoj5"]
+
+[sub_resource type="Animation" id="Animation_lv15j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="Animation" id="Animation_2ulnk"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+}
+
+[sub_resource type="Animation" id="Animation_ucvdh"]
+resource_name = "hitReaction"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [140, 141, 142, 143, 144]
+}
+
+[sub_resource type="Animation" id="Animation_dyckb"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 20]
+}
+
+[sub_resource type="Animation" id="Animation_is6tv"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 71, 72, 73, 74, 75]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4qbk"]
+_data = {
+&"RESET": SubResource("Animation_lv15j"),
+&"death": SubResource("Animation_2ulnk"),
+&"hitReaction": SubResource("Animation_ucvdh"),
+&"idle": SubResource("Animation_dyckb"),
+&"walk": SubResource("Animation_is6tv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnoj5"]
+size = Vector2(34, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ulnk"]
+radius = 167.0
+
+[node name="plantAssasin" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_iqso8")
+metadata/_custom_type_script = "uid://dqcdcmkeiao3g"
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_tnoj5")
+hframes = 10
+vframes = 16
+frame = 20
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j4qbk")
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tnoj5")
+
+[node name="detectionArea" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="Collision" type="CollisionShape2D" parent="detectionArea"]
+shape = SubResource("CircleShape2D_2ulnk")
+
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
