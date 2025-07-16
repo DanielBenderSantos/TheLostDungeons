@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+"values": [110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
 }
 
 [sub_resource type="Animation" id="Animation_ucvdh"]
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [140, 141, 142, 143, 144]
+"values": [150, 151, 152, 153, 154]
 }
 
 [sub_resource type="Animation" id="Animation_dyckb"]
@@ -114,10 +114,12 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tnoj5")
 
 [node name="detectionArea" type="Area2D" parent="." groups=["enemy"]]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="detectionArea"]
 shape = SubResource("CircleShape2D_2ulnk")
