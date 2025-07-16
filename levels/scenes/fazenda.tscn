@@ -109,7 +109,7 @@ y_sort_enabled = true
 
 [node name="Character" parent="YSort" instance=ExtResource("4_sgab2")]
 y_sort_enabled = true
-position = Vector2(290, 256)
+position = Vector2(845, 316)
 
 [node name="arvores" parent="YSort" instance=ExtResource("5_qclv5")]
 tile_map_data = PackedByteArray("AAA0AA4AAAAFABcAAAAzAAQAAAAFABcAAAAfAAIAAAAFABcAAAADAAMAAAAFABcAAAACACMAAAAFABcAAAAEABYAAAAFABcAAAAcACgAAAAFABcAAAALACgAAAAFABcAAAAwACgAAAANABsAAAATACcAAAANABgAAAAQACkAAAANABgAAAAzABgAAAANABgAAAAuABwAAAANABsAAAAoABEAAAANABsAAAAbABEAAAAJABgAAAAQABcAAAANABIAAAA=")
