@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://2y7hy85b1nvh"]
+[gd_scene load_steps=17 format=4 uid="uid://2y7hy85b1nvh"]
 
 [ext_resource type="PackedScene" uid="uid://tyhsjg55fugs" path="res://terrain/scenes/grass.tscn" id="1_5v1wx"]
+[ext_resource type="Script" uid="uid://c88vf1jmn0s8l" path="res://character/scripts/CenaBase.gd" id="1_xq6dy"]
 [ext_resource type="PackedScene" uid="uid://dlp43eyx2d0r1" path="res://terrain/scenes/floor.tscn" id="2_jc41l"]
 [ext_resource type="PackedScene" uid="uid://cfc0uj4acii16" path="res://terrain/scenes/mountain.tscn" id="3_qlqcw"]
 [ext_resource type="PackedScene" uid="uid://dbuayt3nc5f8p" path="res://character/scenes/character.tscn" id="4_sgab2"]
@@ -18,6 +19,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2jie"]
 
 [node name="fazenda" type="Node2D"]
+script = ExtResource("1_xq6dy")
 
 [node name="mapas" type="Node2D" parent="."]
 position = Vector2(312, 312)
@@ -52,7 +54,7 @@ tile_map_data = PackedByteArray("AAC6//D/AAAKAAUAAAC6//H/AAAKAAYAAAC6//L/AAAKAAc
 tile_map_data = PackedByteArray("AAC9//r/AAAAAAAAAAC+//r/AAAAAAAAAAC///r/AAAAAAAAAADC//r/AAAAAAAAAADD//r/AAAAAAAAAADE//r/AAAAAAAAAAAjAP7/AAAAAAAAAAAjAP//AAAAAAAAAAAjAAAAAAAAAAAAAAAjAAEAAAAAAAAAAADA//v/AAAAAAAAAADB//v/AAAAAAAAAADC//v/AAAAAAAAAAC///v/AAAAAAAAAAC8//r/AAAAAAAAAAC7//r/AAAAAAAAAADF//r/AAAAAAAAAADG//r/AAAAAAAAAAC6//r/AAAAAAAAAADH//r/AAAAAAAAAAC6/+//AAAAAAAAAAC7/+//AAAAAAAAAAC7/+7/AAAAAAAAAAC8/+7/AAAAAAAAAAC9/+7/AAAAAAAAAAC+/+7/AAAAAAAAAAC//+7/AAAAAAAAAAC//+//AAAAAAAAAADA/+//AAAAAAAAAADB/+//AAAAAAAAAADC/+//AAAAAAAAAADD/+//AAAAAAAAAADE/+//AAAAAAAAAADF/+//AAAAAAAAAADG/+//AAAAAAAAAADH/+//AAAAAAAAAAC6/yQAAAAAAAAAAAC7/yQAAAAAAAAAAAC7/yUAAAAAAAAAAAC8/yUAAAAAAAAAAAC9/yUAAAAAAAAAAAC+/yQAAAAAAAAAAAC+/yUAAAAAAAAAAAC//yQAAAAAAAAAAADA/yQAAAAAAAAAAADB/yQAAAAAAAAAAADC/yQAAAAAAAAAAADD/yQAAAAAAAAAAADE/yQAAAAAAAAAAADF/yQAAAAAAAAAAADG/yQAAAAAAAAAAADH/yQAAAAAAAAAAAA=")
 
 [node name="Camera" type="Camera2D" parent="mapas" node_paths=PackedStringArray("player") groups=["camera"]]
-position = Vector2(148, -20)
+position = Vector2(257, -17)
 limit_left = 0
 limit_top = 0
 limit_right = 850
@@ -109,15 +111,16 @@ y_sort_enabled = true
 
 [node name="Character" parent="YSort" instance=ExtResource("4_sgab2")]
 y_sort_enabled = true
-position = Vector2(845, 316)
+position = Vector2(843, 316)
 
 [node name="arvores" parent="YSort" instance=ExtResource("5_qclv5")]
 tile_map_data = PackedByteArray("AAA0AA4AAAAFABcAAAAzAAQAAAAFABcAAAAfAAIAAAAFABcAAAADAAMAAAAFABcAAAACACMAAAAFABcAAAAEABYAAAAFABcAAAAcACgAAAAFABcAAAALACgAAAAFABcAAAAwACgAAAANABsAAAATACcAAAANABgAAAAQACkAAAANABgAAAAzABgAAAANABgAAAAuABwAAAANABsAAAAoABEAAAANABsAAAAbABEAAAAJABgAAAAQABcAAAANABIAAAA=")
 
 [node name="caminhoVila" type="Area2D" parent="."]
-position = Vector2(10, 1)
+position = Vector2(-3, 0)
 script = ExtResource("14_xq6dy")
 target_scene_path = "res://levels/scenes/vila.tscn"
+entrada_position = Vector2(27, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="caminhoVila"]
 position = Vector2(871, 311)

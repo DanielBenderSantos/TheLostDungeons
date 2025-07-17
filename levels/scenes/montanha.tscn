@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://bf6dwq227kdg4"]
+[gd_scene load_steps=12 format=4 uid="uid://bf6dwq227kdg4"]
 
+[ext_resource type="Script" uid="uid://c88vf1jmn0s8l" path="res://character/scripts/CenaBase.gd" id="1_61ysb"]
 [ext_resource type="PackedScene" uid="uid://bfyr1of7nnqo3" path="res://terrain/scenes/chaoDaVila.tscn" id="1_w0qro"]
 [ext_resource type="PackedScene" uid="uid://cfc0uj4acii16" path="res://terrain/scenes/mountain.tscn" id="2_s4fuh"]
 [ext_resource type="PackedScene" uid="uid://dbuayt3nc5f8p" path="res://character/scenes/character.tscn" id="2_w0qro"]
@@ -90,6 +91,7 @@ sources/0 = SubResource("TileSetAtlasSource_yhyfc")
 size = Vector2(20, 43)
 
 [node name="montanha" type="Node2D"]
+script = ExtResource("1_61ysb")
 
 [node name="Mapas" type="Node2D" parent="."]
 
@@ -131,6 +133,7 @@ shape = SubResource("RectangleShape2D_spf6a")
 position = Vector2(12, 6)
 script = ExtResource("8_61ysb")
 target_scene_path = "res://levels/scenes/vila.tscn"
+entrada_position = Vector2(855, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vila"]
 position = Vector2(-8, -5)

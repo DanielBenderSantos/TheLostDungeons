@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://btoj22k2jfuja"]
+[gd_scene load_steps=10 format=4 uid="uid://btoj22k2jfuja"]
 
+[ext_resource type="Script" uid="uid://c88vf1jmn0s8l" path="res://character/scripts/CenaBase.gd" id="1_k5yqo"]
 [ext_resource type="Script" uid="uid://ictir5u0loto" path="res://levels/scripts/camera.gd" id="2_5b4ej"]
 [ext_resource type="PackedScene" uid="uid://dowdjr7f5iwuj" path="res://terrain/scenes/casas_da_vila.tscn" id="3_bjk40"]
 [ext_resource type="PackedScene" uid="uid://bfyr1of7nnqo3" path="res://terrain/scenes/chaoDaVila.tscn" id="3_k5yqo"]
@@ -12,6 +13,7 @@
 size = Vector2(20, 43)
 
 [node name="Vila" type="Node2D"]
+script = ExtResource("1_k5yqo")
 
 [node name="mapas" type="Node2D" parent="."]
 position = Vector2(-1, -6)
@@ -45,6 +47,7 @@ player = NodePath("..")
 [node name="CaminhoFazenda" type="Area2D" parent="."]
 script = ExtResource("7_k5yqo")
 target_scene_path = "res://levels/scenes/fazenda.tscn"
+entrada_position = Vector2(824, 314)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaminhoFazenda"]
 position = Vector2(-8, -5)
@@ -54,6 +57,7 @@ shape = SubResource("RectangleShape2D_bjk40")
 position = Vector2(895, -3)
 script = ExtResource("7_k5yqo")
 target_scene_path = "res://levels/scenes/montanha.tscn"
+entrada_position = Vector2(36, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaminhoMontanha"]
 position = Vector2(-8, -5)
