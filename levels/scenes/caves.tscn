@@ -366,4 +366,7 @@ position = Vector2(7, -392)
 [node name="plantAssasin" parent="." instance=ExtResource("9_g8ylg")]
 position = Vector2(444, -413)
 
+[node name="Slime2" parent="." instance=ExtResource("10_5aoo0")]
+position = Vector2(81, -292)
+
 [connection signal="body_entered" from="cave/caminhoVila" to="cave/caminhoVila" method="_on_body_entered"]

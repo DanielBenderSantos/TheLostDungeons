@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://s2wy1y5fbe6r"]
+[gd_scene load_steps=14 format=3 uid="uid://s2wy1y5fbe6r"]
 
 [ext_resource type="Script" uid="uid://cnyqvewq3mt1a" path="res://character/scripts/slime.gd" id="1_35hxt"]
-[ext_resource type="Texture2D" uid="uid://dl1ctlq5tsga1" path="res://character/assets/SlimeDeOsso.png" id="2_w4qtj"]
+[ext_resource type="Texture2D" uid="uid://crheleidvsjf0" path="res://character/assets/Slime2_Combined (1).png" id="2_bi4ca"]
 
 [sub_resource type="Animation" id="Animation_varp3"]
 length = 0.001
@@ -14,13 +14,12 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [132]
 }
 
 [sub_resource type="Animation" id="Animation_bi4ca"]
 resource_name = "death"
-length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,15 +27,15 @@ tracks/0/path = NodePath("Texture:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 49]
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [165, 166, 167, 168, 169, 170, 171, 172, 173, 174]
 }
 
 [sub_resource type="Animation" id="Animation_ntnor"]
 resource_name = "hitReaction"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,14 +45,13 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [88, 89, 90, 91, 92]
+"update": 0,
+"values": [121, 122, 123, 124, 125]
 }
 
 [sub_resource type="Animation" id="Animation_mbthd"]
 resource_name = "idle"
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -63,14 +61,13 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [132, 133, 134, 135, 136, 137]
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_w725i"]
 resource_name = "walk"
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,13 +77,40 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [209, 210, 211, 212, 213, 214, 215, 216]
+"update": 0,
+"values": [77, 78, 79, 80, 81, 82, 83, 84]
+}
+
+[sub_resource type="Animation" id="Animation_hgvok"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [209, 210, 211, 212, 213, 214, 215, 216, 217, 218]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jjyrc"]
 _data = {
 &"RESET": SubResource("Animation_varp3"),
+&"attack": SubResource("Animation_hgvok"),
 &"death": SubResource("Animation_bi4ca"),
 &"hitReaction": SubResource("Animation_ntnor"),
 &"idle": SubResource("Animation_mbthd"),
@@ -97,12 +121,18 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35hxt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntnor"]
+size = Vector2(39, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi4ca"]
+size = Vector2(31.9797, 29.2391)
+
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_35hxt")
 metadata/_custom_type_script = "uid://cnyqvewq3mt1a"
 
 [node name="Texture" type="Sprite2D" parent="."]
-texture = ExtResource("2_w4qtj")
+texture = ExtResource("2_bi4ca")
 hframes = 11
 vframes = 20
 frame = 132
@@ -113,14 +143,27 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_bi4ca")
 
-[node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
+[node name="detectionArea" type="Area2D" parent="." groups=["enemy"]]
+visible = false
 
-[node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+[node name="Collision" type="CollisionShape2D" parent="detectionArea"]
 scale = Vector2(13.192, 13.192)
 shape = SubResource("CircleShape2D_35hxt")
 
-[connection signal="slime_died" from="." to="." method="_on_slime_died"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(20, 0)
+
+[node name="AttackShape" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_ntnor")
+
+[node name="Collision" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-0.500002, 4.76837e-07)
+scale = Vector2(1.21952, 1.09442)
+shape = SubResource("RectangleShape2D_bi4ca")
+
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]

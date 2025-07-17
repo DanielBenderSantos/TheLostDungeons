@@ -34,54 +34,58 @@ func _ready():
 	_animation = $Animation
 	_attack_area = get_node_or_null("AttackArea")
 
-	_animation.play("idle")
-
 	if _attack_area:
 		_attack_area_origin_x = _attack_area.position.x
 	else:
-		push_error("AttackArea não encontrado no nó atual!")
+		push_error("AttackArea não encontrado!")
+
+	var detection_area = get_node_or_null("DetectionArea")
+	if detection_area:
+		if not detection_area.is_connected("body_entered", Callable(self, "_on_detection_area_body_entered")):
+			detection_area.connect("body_entered", Callable(self, "_on_detection_area_body_entered"))
+		if not detection_area.is_connected("body_exited", Callable(self, "_on_detection_area_body_exited")):
+			detection_area.connect("body_exited", Callable(self, "_on_detection_area_body_exited"))
+	else:
+		push_error("DetectionArea não encontrado!")
 
 	if not _animation.is_connected("animation_finished", Callable(self, "_on_animation_finished")):
 		_animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
-func _on_detection_area_body_entered(_body) -> void:
-	if _body.is_in_group("character"):
-		_player_ref = _body
+	_animation.play("idle")
 
-func _on_detection_area_body_exited(_body) -> void:
-	if _body.is_in_group("character"):
+func _on_detection_area_body_entered(body) -> void:
+	if body.is_in_group("character"):
+		_player_ref = body
+		print_debug("Player detectado!")
+
+func _on_detection_area_body_exited(body) -> void:
+	if body == _player_ref:
 		_player_ref = null
 		velocity = Vector2.ZERO
 		_animate()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if _is_dead:
 		return
 
 	if knockback_timer > 0:
 		velocity = knockback_velocity
-		knockback_timer -= _delta
+		knockback_timer -= delta
 		move_and_slide()
 		_animate()
 		return
 
 	if attack_timer > 0:
-		attack_timer -= _delta
+		attack_timer -= delta
 
 	if _is_attacking:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 
-	if _player_ref != null:
-		if _player_ref.is_dead:
-			velocity = Vector2.ZERO
-			move_and_slide()
-			return
-
-		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
-		velocity = _direction * 40
-
+	if _player_ref != null and not _player_ref.is_dead:
+		var dir = global_position.direction_to(_player_ref.global_position)
+		velocity = dir * 40
 		move_and_slide()
 
 		for i in range(get_slide_collision_count()):
@@ -89,6 +93,9 @@ func _physics_process(_delta: float) -> void:
 			if collision.get_collider().is_in_group("character") and attack_timer <= 0:
 				_start_attack(collision.get_collider())
 				return
+	else:
+		velocity = Vector2.ZERO
+		move_and_slide()
 
 	_animate()
 
@@ -98,8 +105,31 @@ func _start_attack(target):
 
 	_is_attacking = true
 	_attack_target = target
-	_animation.play("attack")
 	velocity = Vector2.ZERO
+	_animation.play("attack")
+
+func _process_attack_damage():
+	if _attack_target and is_instance_valid(_attack_target):
+		var hit_confirmed := false
+
+		if _attack_area:
+			var bodies = _attack_area.get_overlapping_bodies()
+			if _attack_target in bodies:
+				hit_confirmed = true
+
+		if not hit_confirmed:
+			var dist = global_position.distance_to(_attack_target.global_position)
+			if dist < 32:
+				hit_confirmed = true
+
+		if hit_confirmed:
+			var knockback_direction = (_attack_target.global_position - global_position).normalized()
+			if _attack_target.has_method("apply_knockback"):
+				_attack_target.apply_knockback(knockback_direction * 150)
+			if _attack_target.has_method("take_damage"):
+				_attack_target.take_damage(attack_damage)
+			print_debug("Dano causado ao jogador!")
+			attack_timer = attack_cooldown
 
 func _animate() -> void:
 	if is_hit_reacting or _is_dead or _is_attacking:
@@ -109,10 +139,16 @@ func _animate() -> void:
 		_texture.flip_h = false
 		if _attack_area:
 			_attack_area.position.x = _attack_area_origin_x
+			var shape = _attack_area.get_node_or_null("AttackShape")
+			if shape:
+				shape.scale.x = 1
 	elif velocity.x < 0:
 		_texture.flip_h = true
 		if _attack_area:
 			_attack_area.position.x = -_attack_area_origin_x
+			var shape = _attack_area.get_node_or_null("AttackShape")
+			if shape:
+				shape.scale.x = -1
 
 	if velocity != Vector2.ZERO:
 		_animation.play("walk")
@@ -146,23 +182,14 @@ func _on_animation_finished(anim_name: String) -> void:
 		"death":
 			emit_signal("slime_died")
 			queue_free()
-
 		"hitReaction":
 			is_hit_reacting = false
 			if _player_ref != null and not _player_ref.is_dead:
 				_start_attack(_player_ref)
 			else:
 				_animation.play("idle")
-
 		"attack":
-			if _attack_target and is_instance_valid(_attack_target) and _attack_area:
-				var bodies = _attack_area.get_overlapping_bodies()
-				if _attack_target in bodies:
-					var knockback_direction = (_attack_target.global_position - global_position).normalized()
-					_attack_target.apply_knockback(knockback_direction * 150)
-					_attack_target.take_damage(attack_damage)
-					attack_timer = attack_cooldown
-
+			_process_attack_damage()
 			_attack_target = null
 			_is_attacking = false
 			_animate()
