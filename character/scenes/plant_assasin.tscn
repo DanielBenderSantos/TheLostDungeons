@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://crm6vlfcerva7"]
+[gd_scene load_steps=13 format=3 uid="uid://crm6vlfcerva7"]
 
 [ext_resource type="Script" uid="uid://cnyqvewq3mt1a" path="res://character/scripts/slime.gd" id="1_iqso8"]
-[ext_resource type="Texture2D" uid="uid://bs27g02nyvvom" path="res://character/assets/Plant1_Combined.png" id="2_tnoj5"]
+[ext_resource type="Texture2D" uid="uid://c0p0hqchme0hn" path="res://character/assets/Plant1_Combined_with_Attack_Below.png" id="2_iqso8"]
 
 [sub_resource type="Animation" id="Animation_lv15j"]
 length = 0.001
@@ -18,6 +18,22 @@ tracks/0/keys = {
 "values": [20]
 }
 
+[sub_resource type="Animation" id="Animation_tnoj5"]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [190, 191, 192, 193, 194, 195, 196]
+}
+
 [sub_resource type="Animation" id="Animation_2ulnk"]
 resource_name = "death"
 tracks/0/type = "value"
@@ -30,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+"values": [110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
 }
 
 [sub_resource type="Animation" id="Animation_ucvdh"]
@@ -46,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [140, 141, 142, 143, 144]
+"values": [150, 151, 152, 153, 154]
 }
 
 [sub_resource type="Animation" id="Animation_dyckb"]
@@ -86,6 +102,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4qbk"]
 _data = {
 &"RESET": SubResource("Animation_lv15j"),
+&"attack": SubResource("Animation_tnoj5"),
 &"death": SubResource("Animation_2ulnk"),
 &"hitReaction": SubResource("Animation_ucvdh"),
 &"idle": SubResource("Animation_dyckb"),
@@ -98,14 +115,17 @@ size = Vector2(34, 36)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ulnk"]
 radius = 167.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqso8"]
+size = Vector2(31.9797, 29.2391)
+
 [node name="plantAssasin" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_iqso8")
 metadata/_custom_type_script = "uid://dqcdcmkeiao3g"
 
 [node name="Texture" type="Sprite2D" parent="."]
-texture = ExtResource("2_tnoj5")
+texture = ExtResource("2_iqso8")
 hframes = 10
-vframes = 16
+vframes = 20
 frame = 20
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -114,13 +134,23 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tnoj5")
 
 [node name="detectionArea" type="Area2D" parent="." groups=["enemy"]]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="detectionArea"]
 shape = SubResource("CircleShape2D_2ulnk")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(20, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-0.500002, 4.76837e-07)
+scale = Vector2(1.21952, 1.09442)
+shape = SubResource("RectangleShape2D_iqso8")
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
