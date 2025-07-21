@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3havp3ruhe1n"]
+
+[ext_resource type="Texture2D" uid="uid://xejmco73kq8o" path="res://character/assets/ambasInvetario.png" id="1_ucasl"]
+
+[node name="Texture" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_ucasl")

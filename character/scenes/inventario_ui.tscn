@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpck3wxedv72"]
+
+[ext_resource type="Texture2D" uid="uid://c5n7k2s6ti5c6" path="res://character/inventory/fundoiventorio.png" id="1_vraav"]
+[ext_resource type="PackedScene" uid="uid://k0s1dgtlhsy" path="res://character/scenes/slot.tscn" id="2_bot44"]
+
+[node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.624237, 0.35054)
+texture = ExtResource("1_vraav")
+stretch_mode = 5
+
+[node name="Container" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+offset_left = 51.2626
+offset_top = 74.1713
+offset_right = 307.263
+offset_bottom = 330.171
+scale = Vector2(0.50624, 0.711861)
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
+
+[node name="slot" parent="Container" instance=ExtResource("2_bot44")]
+layout_mode = 2

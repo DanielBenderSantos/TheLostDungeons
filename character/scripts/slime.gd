@@ -45,8 +45,7 @@ func _ready():
 			detection_area.connect("body_entered", Callable(self, "_on_detection_area_body_entered"))
 		if not detection_area.is_connected("body_exited", Callable(self, "_on_detection_area_body_exited")):
 			detection_area.connect("body_exited", Callable(self, "_on_detection_area_body_exited"))
-	else:
-		push_error("DetectionArea não encontrado!")
+
 
 	if not _animation.is_connected("animation_finished", Callable(self, "_on_animation_finished")):
 		_animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
